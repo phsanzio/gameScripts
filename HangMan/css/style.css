@@ -1,0 +1,12 @@
+@font-face {
+    font-family: Eraser;
+    src: url("../fonts/EraserRegular-DO1D.ttf");
+}
+body {
+    background-image: url("../img/chalkboard.jpg");
+    background-size: cover;
+}
+h1 {
+    font-family: 'Eraser';
+    color: #ffffff;
+}
