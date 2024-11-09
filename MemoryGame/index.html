@@ -5,34 +5,30 @@
         <link rel="stylesheet" href="style.css">
     </head>
 
-    <body>
+    <body onload="hideDiv('question-div')">
         <div class="navbar">
             <nav>
-                <h1>MemoryGame</h1>
+                <h1>Score: <span>0</span></h1>
             </nav>
         </div>
         <main>
-            <div class="maindiv">
-                <!--questions-->
+            <div class="initial-div" id="initial-div">
+                <button id="playbutton" onclick="play()">Play!</button>
+                <h1>Theme: <span id="theme">lorem ipsum</span></h1>
+            </div>
+            <div class="question-div" id="question-div">
                 <div class="question" id="question">
                     <h2>Lorem ipsum dolor sit amet</h2>
                 </div>
                 <div class="options" id="options">
-                    <button class="option" id="option1">option 1</button>
-                    <button class="option" id="option2">option 2</button>
-                    <button class="option" id="option3">option 3</button>
-                    <button class="option" id="option4">option 4</button>
+                    <button class="option" id="option1"><span>option 1</span></button>
+                    <button class="option" id="option2"><span>option 2</span></button>
+                    <button class="option" id="option3"><span>option 3</span></button>
+                    <button class="option" id="option4"><span>option 4</span></button>
                 </div>
-                <!--questions-->
-
-                <!--initial page-->
-                <!--button id="playbutton"></button-->
-                <!--initial page-->
-
-                <!--score page-->
-                <!--score page-->
             </div>
         </main>
+        <script src="script.js"></script>
     </body>
 
     <footer></footer>
