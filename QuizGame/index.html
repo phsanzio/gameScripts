@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MemoryGame</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body onload="hideDiv('question-div')">
+        <div class="navbar">
+            <nav>
+                <h1>Score: <span>0</span></h1>
+            </nav>
+        </div>
+        <main>
+            <div class="initial-div" id="initial-div">
+                <button id="playbutton" onclick="play()">Play!</button>
+                <h1>Theme: <span id="theme">lorem ipsum</span></h1>
+            </div>
+            <div class="question-div" id="question-div">
+                <div class="question" id="question">
+                    <h2><span>Lorem ipsum dolor sit amet</span></h2>
+                </div>
+                <div class="options" id="options">
+                    <button class="option" id="option1"><span>option 1</span></button>
+                    <button class="option" id="option2"><span>option 2</span></button>
+                    <button class="option" id="option3"><span>option 3</span></button>
+                    <button class="option" id="option4"><span>option 4</span></button>
+                </div>
+            </div>
+        </main>
+        <script src="script.js"></script>
+    </body>
+
+    <footer></footer>
+</html>
