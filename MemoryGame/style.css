@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos Gerais */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #AEB2B3;
+    color: #333;
+    min-height: 100vh;
+    padding: 10px;
+}
+
+#container{
+    filter: drop-shadow(0px 0px 30px rgb(97, 97, 97));
+    background-color: #aeb8bb;
+    width: 1100px;
+    height: 550px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form{
+    height: 30%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+form > h1{
+    font-weight: bolder;
+    font-size: 60px;
+    margin-bottom: 25px;
+}
+
+#teste{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#teste > input{
+    border-radius: 10px;
+    border: none;
+    width: 400px;
+    height: 25px;
+    transition: background 0.3s ease;
+    outline: transparent;
+    box-shadow: 0 0 15px rgba(122, 130, 134, 0.888);
+    background-color: #d9e2e6;
+}
+
+#teste > input:hover, #teste > input:focus{
+    transform: scale(1.04);
+}
+
+#teste > button{
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    outline: transparent;
+    border: none;
+    margin-left: 15px;
+    background-color: #333;
+    box-shadow: 0 0 15px rgba(122, 130, 134, 0.888);
+    transition: background 0.3s ease;
+}
+
+#teste > button:hover, #teste > button:focus{
+    transform: scale(1.04);
+}
