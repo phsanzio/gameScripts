@@ -1,0 +1,124 @@
+body{
+    background-image: linear-gradient(135deg, #270722, #641e72, #9c4eac);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar{
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav{
+    border-radius: 0.5em;
+    background-color: #bd93d8;
+    height: 7vh;
+    width: 85vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    color: #641e72;
+}
+
+main{
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.question-div{
+    height: 82vh;
+    width: 85vw;
+    border-radius: 0.5em;
+    background-color: #bd93d8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.question{
+    height: fit-content;
+    width: 80vw;
+    border: none;
+    display: flex;
+    justify-content: center;
+    overflow-wrap: break-word;
+}
+
+.question h2{
+    color: #270722;
+}
+
+.options{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.option{
+    height: 10vh;
+    width: 35vw;
+    margin: 1em;
+    border-radius: 0.5em;
+    border: none;
+    font-weight: 600;
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+#option1{
+    background-color: #4357AD;    
+}
+
+#option2{
+    background-color: #FE9920;    
+}
+
+#option3{
+    background-color: #48A9A6;    
+}
+
+#option4{
+    background-color: #982649;    
+}
+
+.option:hover{
+    transform: translateY(-1rem);
+    transition: 1s ease-out;
+}
+
+.initial-div{
+    height: 82vh;
+    width: 85vw;
+    border-radius: 0.5em;
+    background-color: #bd93d8;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#playbutton{
+    background: none;
+    width: 15vw;
+    height: 30vh;
+    border: solid 0.5rem #641e72;
+    border-radius: 100%;
+    font-size: 5vh;
+    font-weight: 600;
+    color: #641e72;
+}
+
+#playbutton:hover{
+    border-color: #9c4eac;
+    color: #9c4eac;
+}
+
