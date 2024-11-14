@@ -29,30 +29,55 @@ function chooseTheme(){
 function play(){
     const theme = document.getElementById('theme');
     theme.textContent = themes[0];
-    var millisecondsToWait = 3000;
+
+    const questionE = document.getElementById('questiontext');
+    const op1 = document.getElementById('option1');
+    const op2 = document.getElementById('option2');
+    const op3 = document.getElementById('option3');
+    const op4 = document.getElementById('option4');
+
+    const score = document.getElementById('score');
+    let scoreCount = 0;
+
+    const question_keys = Object.keys(questionsDict_MK);
+    let currentQuestionIndex = 0;
+
     setTimeout(function() {
         hideDiv('initial-div');
         showDiv('question-div');
-    }, millisecondsToWait);
-    const score = document.getElementById('score');
-    let scoreCount = 0;
-    const question_keys = Object.keys(questionsDict_MK);
+        loadQuestion(currentQuestionIndex);
+    }, 3000);
 
-    question_keys.forEach(element => {
-        question.textContent = element;
-        const answers = Object.keys(questionsDict_MK[element]);
-        op1.textContent = answers[0];
-        op2.textContent = answers[1];
-        op3.textContent = answers[2];
-        op4.textContent = answers[3];
+    function loadQuestion(index){
+        let question = question_keys[index];
+    
+        let question_answers = Object.keys(questionsDict_MK[question]);
 
-        [op1, op2, op3, op4].forEach(function(e){
-            e.addEventListener('click', function(){
-                if(questionsDict_MK[element][e.textContent]==true){
-                    scoreCount += 100;
-                    score.textContent = scoreCount;
-                }
-            });
-        });
+        questionE.textContent = question;
+    
+        op1.textContent = question_answers[0];
+        op2.textContent = question_answers[1];
+        op3.textContent = question_answers[2];
+        op4.textContent = question_answers[3];
+    }
+    
+    function answerHandler(e){
+        const currentQuestion = question_keys[currentQuestionIndex];
+        if(questionsDict_MK[currentQuestion][e.target.textContent]===true){
+            scoreCount +=100;
+            score.textContent = scoreCount;
+        }
+        currentQuestionIndex++;
+        if(currentQuestionIndex<question_keys.length){
+            loadQuestion(currentQuestionIndex);
+        }else{
+            hideDiv('question-div');
+            const finalScore = document.getElementById('finalscore');
+            finalScore.textContent = scoreCount;
+        }
+    }
+
+    [op1, op2, op3, op4].forEach(function(op){
+        op.addEventListener('click', answerHandler);
     });
 }
