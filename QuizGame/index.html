@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="style.css">
     </head>
 
-    <body onload="hideDiv('question-div')">
+    <body onload="initialize()">
         <div class="navbar">
             <nav>
                 <h1>Score: <span id="score">0</span></h1>
@@ -27,7 +27,7 @@
                     <button class="option" id="option4"><span id="option4">option 4</span></button>
                 </div>
             </div>
-            <div class="final-div">
+            <div class="final-div" id="final-div">
                 <h1>Final score: <span id="finalscore"></span></h1>
             </div>
         </main>

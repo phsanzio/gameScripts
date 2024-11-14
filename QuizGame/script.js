@@ -8,6 +8,11 @@ function showDiv(divName){
     div.style.display = 'flex';
 }
 
+function initialize(){
+    hideDiv('question-div');
+    hideDiv('final-div');
+}
+
 const themes = ['Mortal Kombat', 'Marvel', 'Star Wars', 'Random'];
 
 const questionsDict_MK = {"what is sub-zero's name?":{"Bi-Han":true, "Kuai Liang":false, "Liu Kang":false, "Noob Saibot":false},
@@ -74,6 +79,7 @@ function play(){
             hideDiv('question-div');
             const finalScore = document.getElementById('finalscore');
             finalScore.textContent = scoreCount;
+            showDiv('final-div');
         }
     }
 

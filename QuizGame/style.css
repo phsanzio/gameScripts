@@ -122,3 +122,14 @@ main{
     color: #9c4eac;
 }
 
+.final-div{
+    height: 82vh;
+    width: 85vw;
+    border-radius: 0.5em;
+    background-color: #bd93d8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
