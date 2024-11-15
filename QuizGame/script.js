@@ -8,6 +8,25 @@ function showDiv(divName){
     div.style.display = 'flex';
 }
 
+function changeNavText(state){
+    let navtext = document.getElementById('navbartext');
+    let score = document.getElementById('score');
+    if(state==='initial' || state==='final'){
+        navtext.textContent = "QuizGame";
+        score.style.display = "none";
+    }
+    if(state==='gametime'){
+        navtext.textContent = "Score: ";
+        score.style.display = "inline";
+    }
+}
+
+function initialize(){
+    changeNavText('initial');
+    hideDiv('question-div');
+    hideDiv('final-div');
+}
+
 const themes = ['Mortal Kombat', 'Marvel', 'Star Wars', 'Random'];
 
 const questionsDict_MK = {"what is sub-zero's name?":{"Bi-Han":true, "Kuai Liang":false, "Liu Kang":false, "Noob Saibot":false},
@@ -17,8 +36,16 @@ const questionsDict_MK = {"what is sub-zero's name?":{"Bi-Han":true, "Kuai Liang
                         "in Mythologies:Sub-Zero, what artifact is the player trying to find?":{"Shinnok's ammulet":true, "Kronika's crown":false, "The Kamidogu":false, "Ashrah's sword":false},
                         "the Mortal Kombat tournament happens every...":{"1000 years":true, "300 years":false, "800 years":false, "100 years":false}
                     };
-                        
-const randomDict = {"What is the atomic number of Uranium?":{"12":false, "92":true, "74":false, "22":false}}
+
+function shuffleOps(array) {
+    let currentIndex = array.length;
+        while (currentIndex != 0) {
+            let randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+            [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+        }
+    return array;
+}
 
 function getRandom(){
     return Math.floor(Math.random() * themes.length);
@@ -31,53 +58,64 @@ function chooseTheme(){
 function play(){
     const theme = document.getElementById('theme');
     theme.textContent = themes[0];
-    var millisecondsToWait = 3000;
-    setTimeout(function() {
-        hideDiv('initial-div');
-        showDiv('question-div');
-    }, millisecondsToWait);
-    const question = document.getElementById('questiontext');
+
+    const questionE = document.getElementById('questiontext');
     const op1 = document.getElementById('option1');
     const op2 = document.getElementById('option2');
     const op3 = document.getElementById('option3');
     const op4 = document.getElementById('option4');
+
     const score = document.getElementById('score');
     let scoreCount = 0;
 
     const question_keys = Object.keys(questionsDict_MK);
+    let currentQuestionIndex = 0;
 
-    for(let i = 0; i < question_keys.length; i++){
-        question.textContent = question_keys[i];
-        let answers = Object.keys(questionsDict_MK[question_keys[i]]);
-        op1.textContent = answers[0];
-        op2.textContent = answers[1];
-        op3.textContent = answers[2];
-        op4.textContent = answers[3];
+    setTimeout(function() {
+        hideDiv('initial-div');
+        showDiv('question-div');
+        loadQuestion(currentQuestionIndex);
+        changeNavText('gametime');
+    }, 3000);
 
-        [op1, op2, op3, op4].forEach(function(e){
-            e.addEventListener('click', function(){
-                if(questionsDict_MK[element][e.textContent]==true){
-                    scoreCount += 100;
-                    score.textContent = scoreCount;
-                }
-            });
-        });
+    function loadQuestion(index){
+        let question = question_keys[index];
+    
+        let question_answers = Object.keys(questionsDict_MK[question]);
+
+        questionE.textContent = question;
+
+        shuffleOps(question_answers);
+        let opsArr = [op1, op2, op3, op4];
+
+        for(let i=0; i<question_answers.length; i++){
+            opsArr[i].textContent = question_answers[i];
+        }
     }
-    /*question_keys.forEach(element => {
-        question.textContent = element;
-        const answers = Object.keys(questionsDict_MK[element]);
-        op1.textContent = answers[0];
-        op2.textContent = answers[1];
-        op3.textContent = answers[2];
-        op4.textContent = answers[3];
+    
+    function answerHandler(e){
+        const currentQuestion = question_keys[currentQuestionIndex];
+        if(questionsDict_MK[currentQuestion][e.target.textContent]===true){
+            scoreCount +=100;
+            score.textContent = scoreCount;
+        }
+        currentQuestionIndex++;
+        if(currentQuestionIndex<question_keys.length){
+            loadQuestion(currentQuestionIndex);
+        }else{
+            hideDiv('question-div');
+            const finalScore = document.getElementById('finalscore');
+            finalScore.textContent = scoreCount;
+            changeNavText('final');
+            showDiv('final-div');
+        }
+    }
 
-        [op1, op2, op3, op4].forEach(function(e){
-            e.addEventListener('click', function(){
-                if(questionsDict_MK[element][e.textContent]==true){
-                    scoreCount += 100;
-                    score.textContent = scoreCount;
-                }
-            });
-        });
-    });*/
+    [op1, op2, op3, op4].forEach(function(op){
+        op.addEventListener('click', answerHandler);
+    });
+}
+
+function replay(){
+    location.reload();
 }
