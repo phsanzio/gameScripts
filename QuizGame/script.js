@@ -8,7 +8,21 @@ function showDiv(divName){
     div.style.display = 'flex';
 }
 
+function changeNavText(state){
+    let navtext = document.getElementById('navbartext');
+    let score = document.getElementById('score');
+    if(state==='initial' || state==='final'){
+        navtext.textContent = "QuizGame";
+        score.style.display = "none";
+    }
+    if(state==='gametime'){
+        navtext.textContent = "Score: ";
+        score.style.display = "inline";
+    }
+}
+
 function initialize(){
+    changeNavText('initial');
     hideDiv('question-div');
     hideDiv('final-div');
 }
@@ -22,6 +36,16 @@ const questionsDict_MK = {"what is sub-zero's name?":{"Bi-Han":true, "Kuai Liang
                         "in Mythologies:Sub-Zero, what artifact is the player trying to find?":{"Shinnok's ammulet":true, "Kronika's crown":false, "The Kamidogu":false, "Ashrah's sword":false},
                         "the Mortal Kombat tournament happens every...":{"1000 years":true, "300 years":false, "800 years":false, "100 years":false}
                     };
+
+function shuffleOps(array) {
+    let currentIndex = array.length;
+        while (currentIndex != 0) {
+            let randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+            [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+        }
+    return array;
+}
 
 function getRandom(){
     return Math.floor(Math.random() * themes.length);
@@ -51,6 +75,7 @@ function play(){
         hideDiv('initial-div');
         showDiv('question-div');
         loadQuestion(currentQuestionIndex);
+        changeNavText('gametime');
     }, 3000);
 
     function loadQuestion(index){
@@ -59,11 +84,13 @@ function play(){
         let question_answers = Object.keys(questionsDict_MK[question]);
 
         questionE.textContent = question;
-    
-        op1.textContent = question_answers[0];
-        op2.textContent = question_answers[1];
-        op3.textContent = question_answers[2];
-        op4.textContent = question_answers[3];
+
+        shuffleOps(question_answers);
+        let opsArr = [op1, op2, op3, op4];
+
+        for(let i=0; i<question_answers.length; i++){
+            opsArr[i].textContent = question_answers[i];
+        }
     }
     
     function answerHandler(e){
@@ -79,6 +106,7 @@ function play(){
             hideDiv('question-div');
             const finalScore = document.getElementById('finalscore');
             finalScore.textContent = scoreCount;
+            changeNavText('final');
             showDiv('final-div');
         }
     }
@@ -86,4 +114,8 @@ function play(){
     [op1, op2, op3, op4].forEach(function(op){
         op.addEventListener('click', answerHandler);
     });
+}
+
+function replay(){
+    location.reload();
 }

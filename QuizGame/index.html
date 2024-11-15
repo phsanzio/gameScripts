@@ -6,29 +6,33 @@
     </head>
 
     <body onload="initialize()">
-        <div class="navbar">
+        <div class="navbar" id="navbar">
             <nav>
-                <h1>Score: <span id="score">0</span></h1>
+                <span id="navbartext"></span>
+                <span id="score"></span>
             </nav>
         </div>
         <main>
             <div class="initial-div" id="initial-div">
+                <h1>Theme</h1>
+                <span id="theme"></span>
                 <button id="playbutton" onclick="play()">Play!</button>
-                <h1>Theme: <span id="theme">lorem ipsum</span></h1>
             </div>
             <div class="question-div" id="question-div">
                 <div class="question" id="question">
-                    <h2><span id="questiontext">Lorem ipsum dolor sit amet</span></h2>
+                    <h2><span id="questiontext"></span></h2>
                 </div>
                 <div class="options" id="options">
-                    <button class="option" id="option1"><span id="option1">option 1</span></button>
-                    <button class="option" id="option2"><span id="option2">option 2</span></button>
-                    <button class="option" id="option3"><span id="option3">option 3</span></button>
-                    <button class="option" id="option4"><span id="option4">option 4</span></button>
+                    <button class="option" id="option1"><span id="option1"></span></button>
+                    <button class="option" id="option2"><span id="option2"></span></button>
+                    <button class="option" id="option3"><span id="option3"></span></button>
+                    <button class="option" id="option4"><span id="option4"></span></button>
                 </div>
             </div>
             <div class="final-div" id="final-div">
-                <h1>Final score: <span id="finalscore"></span></h1>
+                <h1>Final score</h1>
+                <span id="finalscore"></span>
+                <button id="replaybttn" onclick="replay()">Play again</button>
             </div>
         </main>
         <script src="script.js"></script>

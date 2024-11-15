@@ -16,8 +16,15 @@ nav{
     height: 7vh;
     width: 85vw;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+#navbartext, #score{
+    color: #641e72;
+    font-weight: bolder;
+    font-size: 3vh;
 }
 
 h1{
@@ -101,25 +108,31 @@ main{
     border-radius: 0.5em;
     background-color: #bd93d8;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
 }
 
 #playbutton{
-    background: none;
-    width: 15vw;
-    height: 30vh;
-    border: solid 0.5rem #641e72;
-    border-radius: 100%;
+    background-color: #641e72;
+    width: 20vw;
+    height: 15vh;
+    border: none;
+    border-radius: 0.5em;
     font-size: 5vh;
     font-weight: 600;
-    color: #641e72;
+    color: #bd93d8;
 }
 
 #playbutton:hover{
-    border-color: #9c4eac;
-    color: #9c4eac;
+    background-color: #833094;
+    color: #bd93d8;
+}
+
+#theme{
+    color: #641e72;
+    font-size: 2em;
+    font-weight: 700;
 }
 
 .final-div{
@@ -133,3 +146,24 @@ main{
     align-items: center;
 }
 
+#finalscore{
+    color: #641e72;
+    font-size: 5em;
+    font-weight: 700;
+}
+
+#replaybttn{
+    margin-top: 5vh;
+    background-color: #641e72;
+    border: none;
+    border-radius: 2em;
+    font-size: 2em;
+    width: 20vw;
+    height: 10vh;
+    color: #9c4eac;
+}
+
+#replaybttn:hover{
+    color: #bd93d8;
+    background-color: #833094;
+}
