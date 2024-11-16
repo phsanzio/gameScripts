@@ -29,13 +29,31 @@ function initialize(){
 
 const themes = ['Mortal Kombat', 'Marvel', 'Star Wars', 'Random'];
 
-const questionsDict_MK = {"What is Sub-Zero's name?":{"Bi-Han":true, "Kuai Liang":false, "Liu Kang":false, "Noob Saibot":false},
+const mortalkombat = {"What is Sub-Zero's name?":{"Bi-Han":true, "Kuai Liang":false, "Liu Kang":false, "Noob Saibot":false},
                         "In which game is Liu Kang killed off for the first time?":{"MK: Deadly Alliance":true, "MK9":false, "MK1":false, "MK11: Aftermath":false},
                         "Who killed the OG Hanzo Hasashi's (Scorpion) clan and family?":{"Quan Chi":true, "Sub-Zero":false, "Smoke":false, "Shang Tsung":false},
                         "Who blinded Kenshi Takahashi (MK1)?":{"Mileena":true, "Kitana":false, "Sindel":false, "Li Mei":false},
                         "In Mythologies:Sub-Zero, what artifact is the player trying to find?":{"Shinnok's ammulet":true, "Kronika's crown":false, "The Kamidogu":false, "Ashrah's sword":false},
-                        "The Mortal Kombat tournament happens every...":{"1000 years":true, "300 years":false, "800 years":false, "100 years":false}
-                    };
+                        "The Mortal Kombat tournament happens every...":{"1000 years":true, "300 years":false, "800 years":false, "100 years":false},
+                        "Who is Raiden's brother?":{"Fujin":true, "Liu Kang":false, "Kung Lao":false, "Shang Tsung":false},
+                        "Which Hollywood actor was Johnny Cage based on?":{"Jean-Claude Van Damme":true, "Nicholas Cage":false, "Chris Evans":false, "Hugh Jackman":false},
+                        "Which ninja was the first hidden character back in the original game?":{"Reptile":true, "Ermac":false, "Smoke":false, "Sub-Zero":false},
+                        "Which characters were trapped in a void by Kronika when she decided to remake the timeline?":{"Shang Tsung, Fujin and Nightwolf":true, "Fujin, Raiden and Scorpion":false, "Shang Tsung, Quan Chi, Shao Khan":false, "Nightwolf, Sindel, Mileena":false}
+};
+
+const marvel = {"In the MCU, for how many years was Captain America frozen in Antarctica?":{"66 years":true, "100 years":false, "70 years":false, "50 years":false},
+                "What's the name of Thor's hammer?":{"Mjolnir":true, "Stormbreaker":false, "Nidavellir":false, "Jonathan":false},
+                "Who are the children of Magneto?":{"Wanda, Pietro and Polaris":true, "Wanda and Pietro":false, "Wanda, Pietro and Rogue":false, "Pietro":false},
+                "How many infinity stones are there?":{"6":true, "5":false, "4":false, "7":false},
+                "Who guarded the Soul Stone in Vormir?":{"Red Skull":true, "Ultron":false, "Dormammu":false, "Knull":false},
+                "In the Fox X-Men movies, when was Wolverine born?":{"1832":true, "1882":false, "1776":false, "1980":false},
+                "How did the Fantastic Four gain their powers?":{"A gama-rays explosion in space hit them":true, "They were born mutants":false, "Through enhancing experiments":false, "The super-soldier serum":false},
+                "":{}
+};
+
+const starwars = {};
+
+const random = {};
 
 function shuffleOps(array) {
     let currentIndex = array.length;
@@ -68,7 +86,7 @@ function play(){
     const score = document.getElementById('score');
     let scoreCount = 0;
 
-    const question_keys = Object.keys(questionsDict_MK);
+    const question_keys = Object.keys(mortalkombat);
     let currentQuestionIndex = 0;
 
     setTimeout(function() {
@@ -81,7 +99,7 @@ function play(){
     function loadQuestion(index){
         let question = question_keys[index];
     
-        let question_answers = Object.keys(questionsDict_MK[question]);
+        let question_answers = Object.keys(mortalkombat[question]);
 
         questionE.textContent = question;
 
@@ -95,7 +113,7 @@ function play(){
     
     function answerHandler(e){
         const currentQuestion = question_keys[currentQuestionIndex];
-        if(questionsDict_MK[currentQuestion][e.target.textContent]===true){
+        if(mortalkombat[currentQuestion][e.target.textContent]===true){
             e.target.style.border = "0.2em solid #0f0"
             scoreCount +=100;
             score.textContent = scoreCount;
