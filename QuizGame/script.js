@@ -29,12 +29,12 @@ function initialize(){
 
 const themes = ['Mortal Kombat', 'Marvel', 'Star Wars', 'Random'];
 
-const questionsDict_MK = {"what is sub-zero's name?":{"Bi-Han":true, "Kuai Liang":false, "Liu Kang":false, "Noob Saibot":false},
-                        "in which game is liu kang killed off for the first time?":{"MK: Deadly Alliance":true, "MK9":false, "MK1":false, "MK11: Aftermath":false},
-                        "who killed og hanzo hasashi's clan and family?":{"Quan Chi":true, "Sub-Zero":false, "Smoke":false, "Shang Tsung":false},
-                        "who blinded Kenshi Takahashi (MK1)?":{"Mileena":true, "Kitana":false, "Sindel":false, "Li Mei":false},
-                        "in Mythologies:Sub-Zero, what artifact is the player trying to find?":{"Shinnok's ammulet":true, "Kronika's crown":false, "The Kamidogu":false, "Ashrah's sword":false},
-                        "the Mortal Kombat tournament happens every...":{"1000 years":true, "300 years":false, "800 years":false, "100 years":false}
+const questionsDict_MK = {"What is Sub-Zero's name?":{"Bi-Han":true, "Kuai Liang":false, "Liu Kang":false, "Noob Saibot":false},
+                        "In which game is Liu Kang killed off for the first time?":{"MK: Deadly Alliance":true, "MK9":false, "MK1":false, "MK11: Aftermath":false},
+                        "Who killed the OG Hanzo Hasashi's (Scorpion) clan and family?":{"Quan Chi":true, "Sub-Zero":false, "Smoke":false, "Shang Tsung":false},
+                        "Who blinded Kenshi Takahashi (MK1)?":{"Mileena":true, "Kitana":false, "Sindel":false, "Li Mei":false},
+                        "In Mythologies:Sub-Zero, what artifact is the player trying to find?":{"Shinnok's ammulet":true, "Kronika's crown":false, "The Kamidogu":false, "Ashrah's sword":false},
+                        "The Mortal Kombat tournament happens every...":{"1000 years":true, "300 years":false, "800 years":false, "100 years":false}
                     };
 
 function shuffleOps(array) {
@@ -96,19 +96,25 @@ function play(){
     function answerHandler(e){
         const currentQuestion = question_keys[currentQuestionIndex];
         if(questionsDict_MK[currentQuestion][e.target.textContent]===true){
+            e.target.style.border = "0.2em solid #0f0"
             scoreCount +=100;
             score.textContent = scoreCount;
-        }
-        currentQuestionIndex++;
-        if(currentQuestionIndex<question_keys.length){
-            loadQuestion(currentQuestionIndex);
         }else{
-            hideDiv('question-div');
-            const finalScore = document.getElementById('finalscore');
-            finalScore.textContent = scoreCount;
-            changeNavText('final');
-            showDiv('final-div');
+            e.target.style.border = "0.2em solid #f00"
         }
+        setTimeout(function() {
+            e.target.style.border = "none";
+            currentQuestionIndex++;
+            if(currentQuestionIndex<question_keys.length){
+                loadQuestion(currentQuestionIndex);
+            }else{
+                hideDiv('question-div');
+                const finalScore = document.getElementById('finalscore');
+                finalScore.textContent = scoreCount;
+                changeNavText('final');
+                showDiv('final-div');
+            }
+        }, 2000);
     }
 
     [op1, op2, op3, op4].forEach(function(op){
