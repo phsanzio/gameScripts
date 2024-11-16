@@ -63,18 +63,18 @@ h1{
 }
 
 
-#teste{
+#select_theme {
     border: none;
     outline: none;
     background-color: transparent;
     border-radius: 20px;
 }
 
-#text{
+#theme_text {
     margin-top: 10px;
 }
 
-p{
+#play_theme {
     font-family: "Permanent Marker", cursive;
     color: #333;
     font-size: 18px;
@@ -89,12 +89,6 @@ p{
     flex-direction: row;
     gap: 2vw 2vw;
     margin-top: 15px;
-}
-
-/* Reset Básico */
-
-h1 {
-    margin: 20px 0;
 }
 
 #restart {
