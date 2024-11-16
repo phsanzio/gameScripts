@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles/style2.css">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="styles/gameStyle.css">
     <script src="scripts/script.js"></script>
+    <link type="image/png" sizes="64x64" rel="icon" href="images/jogo-da-memoria.png">
 </head>
 <body>
     <div id="container">
@@ -16,50 +17,57 @@
         
         <div id="gallery">
 
-            <button id="teste" onclick="teste()">
+            <button id="select_theme" onclick="startGame()">
                 <div id="select">
                     <img src="images/animal.png" alt="">
-                    <div id="text">
-                        <p>ANIMALS</p>
+                    <div id="theme_text">
+                        <p id="play_theme">ANIMALS</p>
                     </div>
                 </div>
             </button>
 
-            <div id="select">
-                <img src="images/animal.png" alt="">
-                <div id="text">
-                    <p>FRUITS</p>
+            <button id="select_theme" onclick="startGame()">
+                <div id="select">
+                    <img src="images/animal.png" alt="">
+                    <div id="theme_text">
+                        <p id="play_theme">FRUITS</p>
+                    </div>
                 </div>
-            </div>
+            </button>
 
-            <div id="select">
-                <img src="images/animal.png" alt="">
-                <div id="text">
-                    <p>SUPER HEROES</p>
+            <button id="select_theme" onclick="startGame()">
+                <div id="select">
+                    <img src="images/animal.png" alt="">
+                    <div id="theme_text">
+                        <p id="play_theme">SUPER HEROES</p>
+                    </div>
                 </div>
-            </div>
+            </button>
 
-            <div id="select">
-                <img src="images/animal.png" alt="">
-                <div id="text">
-                    <p>ANIMALS</p>
+            <button id="select_theme" onclick="startGame()">
+                <div id="select">
+                    <img src="images/animal.png" alt="">
+                    <div id="theme_text">
+                        <p id="play_theme">SUPER HEROES</p>
+                    </div>
                 </div>
-            </div>
+            </button>
 
-
-            <div id="select">
-                <img src="images/animal.png" alt="">
-                <div id="text">
-                    <p>ANIMALS</p>
+            <button id="select_theme" onclick="startGame()">
+                <div id="select">
+                    <img src="images/animal.png" alt="">
+                    <div id="theme_text">
+                        <p id="play_theme">SUPER HEROES</p>
+                    </div>
                 </div>
-            </div>
+            </button>
 
         </div>
 
-        <div id="game">
-        <div id="game-board" class="board">
-             
-        </div>
+        <div id="play_game" style="display: none;">
+            <div id="game_board" class="board">
+                
+            </div>
         </div>
 
     </div>

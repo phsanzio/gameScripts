@@ -5,19 +5,19 @@ let cards = [...icons, ...icons];
 let flippedCards = [];
 let matchedPairs = 0;
 
-// Função para embaralhar as cartas
-function shuffle(array) {
+
+function shuffle_cards(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
 
-// Função para criar o tabuleiro
+
 function createBoard() {
-    const gameBoard = document.getElementById('game-board');
+    const gameBoard = document.getElementById('game_board');
     gameBoard.innerHTML = '';
-    shuffle(cards);
+    shuffle_cards(cards);
     cards.forEach((icon, index) => {
         const card = document.createElement('div');
         card.classList.add('card');
@@ -46,6 +46,8 @@ function checkForMatch() {
     const [card1, card2] = flippedCards;
 
     if (card1.dataset.icon === card2.dataset.icon) {
+        card1.classList.remove('flipped');
+        card2.classList.remove('flipped');
         card1.classList.add('matched');
         card2.classList.add('matched');
         matchedPairs++;
@@ -63,23 +65,20 @@ function checkForMatch() {
     flippedCards = [];
 }
 
-// Função para reiniciar o jogo
+
 function restartGame() {
     matchedPairs = 0;
     flippedCards = [];
     createBoard();
 }
 
-// Inicializar o jogo
+
 restartButton.addEventListener('click', restartGame);
 
 
-
-
-
-function teste() {
+function startGame() {
     const div_gallery = document.getElementById('gallery');
-    const div_gameboard = document.getElementById('game');
+    const div_gameboard = document.getElementById('play_game');
     div_gallery.style.display = 'none';
     div_gameboard.style.display = 'block';
     createBoard();
