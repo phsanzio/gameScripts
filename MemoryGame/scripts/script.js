@@ -80,7 +80,14 @@ function startGame() {
     const div_gallery = document.getElementById('gallery');
     const div_gameboard = document.getElementById('play_game');
     div_gallery.style.display = 'none';
-    div_gameboard.style.display = 'block';
+    div_gameboard.style.display = '';
     createBoard();
 }
 
+function startGamePage(){
+    const div_initial = document.getElementById('initial_page');
+    const div_container = document.getElementById('container');
+    div_initial.style.display = 'none';
+    div_container.style.display = '';
+
+}
