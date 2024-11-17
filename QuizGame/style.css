@@ -56,10 +56,12 @@ main{
     display: flex;
     justify-content: center;
     overflow-wrap: break-word;
+    text-align: center;
 }
 
 .question h2{
     color: #270722;
+    text-align: center;
 }
 
 .options{
@@ -98,7 +100,7 @@ main{
 }
 
 .option:hover{
-    transform: translateY(-1rem);
+    transform: translateY(-0.3rem);
     transition: 1s ease-out;
 }
 
@@ -109,8 +111,9 @@ main{
     background-color: #bd93d8;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    gap: 5vh;
 }
 
 #playbutton{
