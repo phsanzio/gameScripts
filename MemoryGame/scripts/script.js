@@ -1,9 +1,14 @@
 
 const restartButton = document.getElementById('restart');
-const icons = ['🍎', '🍊', '🍌', '🍉', '🍇', '🍓'];
-let cards = [...icons, ...icons];
+const themes = {
+    fruits: ['🍎', '🍌', '🍉', '🍇', '🍍', '🍊'],
+    animals: ['🐶', '🐱', '🦊', '🐻', '🐼', '🐨', '🐸', '🦁'],
+    tec: ['💻', '📱', '🖥️', '🖱️', '⌨️', '🎧', '📷', '📡']
+};
+// let cards = [...icons, ...icons];
 let flippedCards = [];
 let matchedPairs = 0;
+let size_game = 6;
 
 
 function shuffle_cards(array) {
@@ -14,9 +19,11 @@ function shuffle_cards(array) {
 }
 
 
-function createBoard() {
+function createBoard(theme) {
     const gameBoard = document.getElementById('game_board');
     gameBoard.innerHTML = '';
+    const icons = themes[theme];
+    let cards = [...icons, ...icons];
     shuffle_cards(cards);
     cards.forEach((icon, index) => {
         const card = document.createElement('div');
@@ -51,7 +58,7 @@ function checkForMatch() {
         card1.classList.add('matched');
         card2.classList.add('matched');
         matchedPairs++;
-        if (matchedPairs === icons.length) {
+        if (matchedPairs === size_game.length) {
             alert('Parabéns! Você encontrou todos os pares!');
         }
     } else {
@@ -76,11 +83,18 @@ function restartGame() {
 restartButton.addEventListener('click', restartGame);
 
 
-function startGame() {
+function startGame(theme) {
     const div_gallery = document.getElementById('gallery');
     const div_gameboard = document.getElementById('play_game');
     div_gallery.style.display = 'none';
-    div_gameboard.style.display = 'block';
-    createBoard();
+    div_gameboard.style.display = '';
+    createBoard(theme);
 }
 
+function startGamePage(){
+    const div_initial = document.getElementById('initial_page');
+    const div_container = document.getElementById('container');
+    div_initial.style.display = 'none';
+    div_container.style.display = '';
+
+}
