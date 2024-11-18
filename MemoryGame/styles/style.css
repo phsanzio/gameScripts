@@ -123,6 +123,10 @@ body {
     justify-content: flex-start;
 }
 
+#icon_username:hover{
+    transform: scale(1.05);
+}
+
 #name_user{
     font-family: "Permanent Marker", cursive;
     color: #333;
@@ -227,6 +231,7 @@ body {
     outline: transparent;
     box-shadow: 0 0 15px rgba(122, 130, 134, 0.888);
     background-color: #d9e2e6;
+    font-family: "Permanent Marker", cursive;
 }
 
 #username:hover, #username:focus{
