@@ -13,10 +13,10 @@
     <div id="initial_page">
 
         <div id="whatsName">
-            <h1>Qual o seu nome?</h1>
-            <div id="teste">
-                <input type="text">
-                <button onclick="startGamePage()"><img src="images/right-arrow.png" alt="Enter"></button>
+            <h1 id="first_text">Qual o seu nome?</h1>
+            <div id="insert_username">
+                <input type="text" id="username">
+                <button onclick="startGamePage()" id="enter"><img src="images/right-arrow.png" alt="Enter" id="icon_enter"></button>
             </div>
         </div>
 
@@ -25,7 +25,11 @@
     <div id="container" style="display: none;">
         
         <div id="title">
-            <h1>THEMES</h1>
+            <h1 id="title_text">THEMES</h1>
+            <div id="icon_username">
+                <img src="images/profile-user.png" alt="user" id="img_user">
+                <p id="name_user"></p>
+            </div>
         </div>
         
         <div id="gallery">
@@ -41,36 +45,36 @@
 
             <button id="select_theme" onclick="startGame('fruits')">
                 <div id="select">
-                    <img src="images/animal.png" alt="">
+                    <img src="images/fruits.jpeg" alt="">
                     <div id="theme_text">
                         <p id="play_theme">FRUITS</p>
                     </div>
                 </div>
             </button>
 
-            <button id="select_theme" onclick="startGame()">
+            <button id="select_theme" onclick="startGame('tec')">
                 <div id="select">
-                    <img src="images/animal.png" alt="">
+                    <img src="images/electronics.jpeg" alt="">
                     <div id="theme_text">
-                        <p id="play_theme">SUPER HEROES</p>
+                        <p id="play_theme">ELECTRONICS</p>
                     </div>
                 </div>
             </button>
 
-            <button id="select_theme" onclick="startGame()">
+            <button id="select_theme" onclick="startGame('sports')">
                 <div id="select">
-                    <img src="images/animal.png" alt="">
+                    <img src="images/sports.jpeg" alt="">
                     <div id="theme_text">
-                        <p id="play_theme">SUPER HEROES</p>
+                        <p id="play_theme">SPORTS</p>
                     </div>
                 </div>
             </button>
 
-            <button id="select_theme" onclick="startGame()">
+            <button id="select_theme" onclick="startGame('nature')">
                 <div id="select">
-                    <img src="images/animal.png" alt="">
+                    <img src="images/nature.jpeg" alt="">
                     <div id="theme_text">
-                        <p id="play_theme">SUPER HEROES</p>
+                        <p id="play_theme">NATURE</p>
                     </div>
                 </div>
             </button>

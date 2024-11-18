@@ -30,20 +30,19 @@ body {
     flex-direction: column;
 }
 
-h1{
-    font-weight: bolder;
-    font-size: 40px;
-    margin-bottom: 25px;
-    color: #333;
-    font-family: "Permanent Marker", cursive;
+#title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 97%;
+    height: 15%;
+    margin-top: 20px;
 }
 
-#title{
-    margin-top: 28px;
-    align-self: self-start;
-    margin-left: 20px;
-    width: 95%;
-    height: 10%;
+#title_text {
+    margin-left: 15px;
+    font-family: "Permanent Marker", cursive;
+    font-size: 35px;
 }
 
 #select{
@@ -90,16 +89,16 @@ h1{
     display: flex;
     flex-direction: row;
     gap: 2vw 2vw;
-    height: 80%;
-    width: 95%;
+    height: 90%;
+    width: 97%;
     justify-content: center;
     align-items: center;
 }
 
 #play_game{
     display: flex;
-    height: 80%;
-    width: 95%;
+    height: 90%;
+    width: 97%;
 }
 
 #restart {
@@ -110,6 +109,28 @@ h1{
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+#icon_username{
+    display: flex;
+    margin-right: 15px;
+    border-radius: 15px;
+    background-color: rgb(150, 158, 158);
+    filter: drop-shadow(0px 0px 15px rgb(56, 56, 56));
+    width: 110px;
+    height: 30px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#name_user{
+    font-family: "Permanent Marker", cursive;
+    color: #333;
+    margin-left: 6px;
+}
+
+#img_user{
+    height: 100%;
 }
 
 .board {
@@ -149,7 +170,7 @@ h1{
 }
 
 .matched {
-    background-color: #4db95f;
+    background-color: #4db95f !important;
     cursor: default;
 }
 
@@ -166,6 +187,13 @@ h1{
     justify-content: center;
 }
 
+#first_text {
+    font-weight: bolder;
+    font-size: 40px;
+    margin-bottom: 25px;
+    color: #333;
+    font-family: "Permanent Marker", cursive;
+}
 
 #whatsName{
     height: 30%;
@@ -182,13 +210,13 @@ h1{
     margin-bottom: 25px;
 }
 
-#teste{
+#insert_username{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#teste > input{
+#username {
     font-size: 18px;
     color: #333;
     border-radius: 10px;
@@ -201,11 +229,11 @@ h1{
     background-color: #d9e2e6;
 }
 
-#teste > input:hover, #teste > input:focus{
+#username:hover, #username:focus{
     transform: scale(1.04);
 }
 
-#teste > button{
+#enter {
     width: 34px;
     height: 34px;
     border-radius: 20px;
@@ -220,11 +248,11 @@ h1{
     justify-content: center;
 }
 
-button > img{
+#icon_enter {
     width: 20px;
     height: 20px;
 }
 
-#teste > button:hover, #teste > button:focus{
-    transform: scale(1.04);
+#enter:hover, #enter:focus{
+    transform: scale(1.05);
 }

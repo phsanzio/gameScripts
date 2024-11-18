@@ -2,13 +2,13 @@
 const restartButton = document.getElementById('restart');
 const themes = {
     fruits: ['🍎', '🍌', '🍉', '🍇', '🍍', '🍊'],
-    animals: ['🐶', '🐱', '🦊', '🐻', '🐼', '🐨', '🐸', '🦁'],
-    tec: ['💻', '📱', '🖥️', '🖱️', '⌨️', '🎧', '📷', '📡']
+    animals: ['🐶', '🐱', '🦊', '🐻', '🐼', '🐨'],
+    tec: ['💻', '📱', '🖥️', '🖱️', '⌨️', '🎧'],
+    sports: ['⚽', '🏀', '🏈', '🎾', '🏐', '🥊'],
+    nature: ['🌳', '🌻', '🍃', '🌍', '🌾', '🌵']
 };
-// let cards = [...icons, ...icons];
 let flippedCards = [];
 let matchedPairs = 0;
-let size_game = 6;
 
 
 function shuffle_cards(array) {
@@ -35,7 +35,6 @@ function createBoard(theme) {
     });
 }
 
-// Função para virar a carta
 function flipCard() {
     if (flippedCards.length < 2 && !this.classList.contains('flipped')) {
         this.classList.add('flipped');
@@ -48,17 +47,15 @@ function flipCard() {
     }
 }
 
-// Função para verificar se as cartas viradas são iguais
+
 function checkForMatch() {
     const [card1, card2] = flippedCards;
-
+    flippedCards = [];
     if (card1.dataset.icon === card2.dataset.icon) {
-        card1.classList.remove('flipped');
-        card2.classList.remove('flipped');
         card1.classList.add('matched');
         card2.classList.add('matched');
         matchedPairs++;
-        if (matchedPairs === size_game.length) {
+        if (document.querySelectorAll('.matched').length === document.querySelectorAll('.card').length) {
             alert('Parabéns! Você encontrou todos os pares!');
         }
     } else {
@@ -67,9 +64,8 @@ function checkForMatch() {
             card2.classList.remove('flipped');
             card1.textContent = '';
             card2.textContent = '';
-        }, 1000);
+        }, 500);
     }
-    flippedCards = [];
 }
 
 
@@ -89,12 +85,21 @@ function startGame(theme) {
     div_gallery.style.display = 'none';
     div_gameboard.style.display = '';
     createBoard(theme);
+    const title_text = document.getElementById('title_text');
+    title_text.textContent = theme;
 }
 
 function startGamePage(){
-    const div_initial = document.getElementById('initial_page');
-    const div_container = document.getElementById('container');
-    div_initial.style.display = 'none';
-    div_container.style.display = '';
-
+    const username = document.getElementById('username');
+    if (username.value != ''){
+        const div_initial = document.getElementById('initial_page');
+        const div_container = document.getElementById('container');
+        const name_user = document.getElementById('name_user');
+        div_initial.style.display = 'none';
+        div_container.style.display = '';
+        name_user.textContent = username.value;
+        username.value = '';
+    } else {
+        alert('Insira um nome por favor!');
+    }   
 }
