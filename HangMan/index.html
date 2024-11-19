@@ -6,9 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hangman</title>
 </head>
-<body>
-    <h1>HANGMAN</h1>
-    <p>ERROS: <span>X</span></p>
-    <input type="text" name="letter" id="">
-</body>
+    <body onload="setGame()">
+        <h1>HANGMAN</h1>
+        <p>ERROS: <span id="errors">0</span></p>
+        <div id="hang">
+            <img src="img/0.png" alt="hang" id="hang_img">
+        </div>
+        <div id="game">
+            <div id="keyboard">
+                <div id="k1"></div>
+                <div id="k2"></div>
+                <div id="k3"></div>
+            </div>
+        </div>
+        <script src="js/script.js"></script>
+    </body>
 </html>

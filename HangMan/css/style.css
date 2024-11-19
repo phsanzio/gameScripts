@@ -5,8 +5,43 @@
 body {
     background-image: url("../img/chalkboard.jpg");
     background-size: cover;
+    font-family: 'Eraser';
+    color: #ffffff;
 }
 h1 {
     font-family: 'Eraser';
-    color: #ffffff;
+}
+p {
+    font-family: 'Eraser';
+}
+#hang {
+    display: flex;
+    align-items: end;
+}
+.letter {
+    display: flex;
+    justify-content: center;
+    width: 6em;
+    border-bottom: 3px solid #ffffff;
+    margin-right: 1.5em;
+    margin-bottom: 1.5em;
+}
+.letter > span {
+    font-size: 96px;
+}
+#game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.key {
+    margin-left: 0.2vw;
+}
+#hang_img {
+    width: 512px;
 }
