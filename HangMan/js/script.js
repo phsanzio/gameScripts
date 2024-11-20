@@ -15,7 +15,7 @@ function lockKeyboard(){
     }
 }
 function checkLetter(letter){
-    let foundLetter = false;
+    let foundLetter = 0;
     console.log(letter)
     for (let i = 0; i < word.length; i++) {
         if (letter.toLowerCase() === word[i]){
@@ -23,11 +23,11 @@ function checkLetter(letter){
             const span = document.createElement("span");
             span.textContent = word[i].toUpperCase();
             blankLetter.appendChild(span);
-            foundLetter = true;
+            foundLetter += 1;
         }
     }
-    if (foundLetter) {
-        wordsLeft -= 1;
+    if (foundLetter > 0) {
+        wordsLeft -= foundLetter;
         const remain = document.getElementById("remain");
         remain.textContent = wordsLeft;
         if (wordsLeft === 0) {
