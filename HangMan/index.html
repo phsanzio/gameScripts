@@ -2,23 +2,30 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hangman</title>
 </head>
     <body onload="setGame()">
-        <h1>HANGMAN</h1>
-        <p>ERROS: <span id="errors">0</span></p>
-        <div id="hang">
-            <img src="img/0.png" alt="hang" id="hang_img">
-        </div>
-        <div id="game">
+        <div id="board">
+            <div id="navbar">
+                <h1>HANGMAN</h1>
+                <p>ERROS: <span id="errors">0</span></p>
+                <p>RESTA: <span id="remain">0</span>/<span id="total">0</span></p>
+            </div>
+            <div id="hang">
+                <img src="img/0.png" alt="hang" id="hang_img">
+            </div>
             <div id="keyboard">
                 <div id="k1"></div>
                 <div id="k2"></div>
                 <div id="k3"></div>
             </div>
         </div>
+        
         <script src="js/script.js"></script>
     </body>
 </html>

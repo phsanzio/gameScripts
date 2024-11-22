@@ -3,6 +3,7 @@ const qwerty = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D",
 let chosenWordIndex = Math.floor(Math.random() * dict.length);
 let word = dict[chosenWordIndex];
 let errors = 0;
+let wordsLeft = word.length;
 function updateHangman(){
     const img = document.getElementById("hang_img");
     img.src = `img/${errors}.png`
@@ -14,7 +15,7 @@ function lockKeyboard(){
     }
 }
 function checkLetter(letter){
-    let foundLetter = false;
+    let foundLetter = 0;
     console.log(letter)
     for (let i = 0; i < word.length; i++) {
         if (letter.toLowerCase() === word[i]){
@@ -22,10 +23,17 @@ function checkLetter(letter){
             const span = document.createElement("span");
             span.textContent = word[i].toUpperCase();
             blankLetter.appendChild(span);
-            foundLetter = true;
+            foundLetter += 1;
         }
     }
-    if (!foundLetter) {
+    if (foundLetter > 0) {
+        wordsLeft -= foundLetter;
+        const remain = document.getElementById("remain");
+        remain.textContent = wordsLeft;
+        if (wordsLeft === 0) {
+            lockKeyboard();
+        }
+    } else {
         errors += 1;
         document.getElementById("errors").textContent = errors;
         if (errors < 7) {
@@ -38,6 +46,10 @@ function checkLetter(letter){
 }
 function setGame() {
     const emptyLetter = document.getElementById("letter");
+    const remain = document.getElementById("remain");
+    const total = document.getElementById("total");
+    remain.textContent = wordsLeft;
+    total.textContent = wordsLeft;
     for (let i  = 0; i < word.length; i++) {
         const letter = document.createElement("div");
         letter.className = 'letter';
