@@ -203,6 +203,10 @@ body {
     padding: 3px;
 }
 
+#timer{
+    color: rgb(252, 32, 32);
+}
+
 /* Initial Page */
 
 #initial_page{

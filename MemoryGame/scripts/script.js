@@ -10,6 +10,8 @@ const themes = {
 let flippedCards = [];
 let matchedPairs = 0;
 let attempts = 0;
+let startTime = null;
+
 
 
 function shuffle_cards(array) {
@@ -34,6 +36,7 @@ function createBoard(theme) {
         card.addEventListener('click', flipCard);
         gameBoard.appendChild(card);
     });
+    startTimer();
 }
 
 function flipCard() {
@@ -116,4 +119,16 @@ function startGamePage(){
     } else {
         alert('Insira um nome por favor!');
     }   
+}
+
+function startTimer() {
+    startTime = Date.now();
+    getTimer();
+}
+
+function getTimer() {
+    const time = Math.floor((Date.now() - startTime) / 1000);
+    const div_timer = document.getElementById("timer");
+    div_timer.textContent = `Tempo: ${time}s`;
+    requestAnimationFrame(getTimer);
 }
