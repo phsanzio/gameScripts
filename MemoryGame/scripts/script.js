@@ -9,6 +9,7 @@ const themes = {
 };
 let flippedCards = [];
 let matchedPairs = 0;
+let attempts = 0;
 
 
 function shuffle_cards(array) {
@@ -59,6 +60,7 @@ function checkForMatch() {
             alert('Parabéns! Você encontrou todos os pares!');
         }
     } else {
+        getAttempts();
         setTimeout(() => {
             card1.classList.remove('flipped');
             card2.classList.remove('flipped');
@@ -66,6 +68,12 @@ function checkForMatch() {
             card2.textContent = '';
         }, 500);
     }
+}
+
+function getAttempts(){
+    attempts++;
+    const text_attempts = document.getElementById('attempts')
+    text_attempts.textContent = `Tentativas: ${attempts}`;
 }
 
 
@@ -82,7 +90,11 @@ restartButton.addEventListener('click', restartGame);
 function startGame(theme) {
     const div_gallery = document.getElementById('gallery');
     const div_gameboard = document.getElementById('play_game');
+    const div_stats = document.getElementById('stats');
+    const div_user = document.getElementById('icon_username');
     div_gallery.style.display = 'none';
+    div_user.style.display = 'none';
+    div_stats.style.display = '';
     div_gameboard.style.display = '';
     createBoard(theme);
     const title_text = document.getElementById('title_text');
@@ -95,6 +107,8 @@ function startGamePage(){
         const div_initial = document.getElementById('initial_page');
         const div_container = document.getElementById('container');
         const name_user = document.getElementById('name_user');
+        const div_stats = document.getElementById('stats');
+        div_stats.style.display = 'none';
         div_initial.style.display = 'none';
         div_container.style.display = '';
         name_user.textContent = username.value;

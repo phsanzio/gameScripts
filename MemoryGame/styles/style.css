@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
+    font-family: "Permanent Marker", cursive;
 }
 
 body {
@@ -16,40 +17,49 @@ body {
     color: #333;
     min-height: 100vh;
     padding: 10px;
+    height: 100%;
+    width: 100%;
 }
 
 #container{
     filter: drop-shadow(0px 0px 30px rgb(97, 97, 97));
     background: linear-gradient(135deg , rgb(214, 211, 212),rgb(86,99,104));
-    width: 1100px;
-    height: 550px;
+    width: 88%;
+    max-width: 1100px;
+    height: auto;
+    min-height: 550px;
+    padding: 20px;
     border-radius: 20px;
     display: flex;
-    align-items: center;
-    justify-content: start;
     flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 20px;
 }
 
 #title {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 97%;
-    height: 15%;
-    margin-top: 20px;
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 5px;
 }
 
 #title_text {
-    margin-left: 15px;
-    font-family: "Permanent Marker", cursive;
     font-size: 35px;
 }
 
 #select{
     filter: drop-shadow(0px 0px 30px rgb(97, 97, 97));
     background-color: rgb(150, 158, 158);
-    width: 170px;
-    height: 300px;
+    width: 22vw;
+    max-width: 170px;
+    height: auto;
+    aspect-ratio: 170 / 290;
     border-radius: 20px;
     transition: background 0.3s ease;
     display: flex;
@@ -58,8 +68,8 @@ body {
 }
 
 #select > img{
-    height: 250px;
-    width: 170px;
+    height: 80%;
+    width: 100%;
     border-radius: 20px 20px 0px 0px;
 }
 
@@ -76,9 +86,8 @@ body {
 }
 
 #play_theme {
-    font-family: "Permanent Marker", cursive;
     color: #333;
-    font-size: 18px;
+    font-size: 1.5em;
 }
 
 #select:hover{
@@ -87,18 +96,21 @@ body {
 
 #gallery{
     display: flex;
-    flex-direction: row;
-    gap: 2vw 2vw;
-    height: 90%;
+    flex-wrap: wrap;
+    gap: 2vw;
     width: 97%;
     justify-content: center;
     align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 #play_game{
     display: flex;
     height: 90%;
-    width: 97%;
+    width: 100%;
+    justify-content: center;
+    margin-top: 5px;
 }
 
 #restart {
@@ -113,12 +125,12 @@ body {
 
 #icon_username{
     display: flex;
-    margin-right: 15px;
     border-radius: 15px;
     background-color: rgb(150, 158, 158);
     filter: drop-shadow(0px 0px 15px rgb(56, 56, 56));
-    width: 110px;
-    height: 30px;
+    width: fit-content;
+    height: 2em;
+    aspect-ratio: 85 / 30;
     align-items: center;
     justify-content: flex-start;
 }
@@ -128,38 +140,38 @@ body {
 }
 
 #name_user{
-    font-family: "Permanent Marker", cursive;
     color: #333;
     margin-left: 6px;
+    /* margin-right: 15px; */
 }
 
 #img_user{
     height: 100%;
+    object-fit: cover;
 }
 
 .board {
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
     align-items: center;
-    gap: 3vw;
-    padding: 0 1vw;
+    gap: 2vw;
+    padding: 1vw;
     height: 100%;
-    width: 100%;
+    width: 65%;
 }
 
 .card {
-    width: 100px;
-    height: 100px;
+    width: 9vw;
+    height: 9vw;
     filter: drop-shadow(0px 0px 15px rgb(56, 56, 56));
     background-color: rgb(150, 158, 158);
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: #fff;
     cursor: pointer;
     transition: background 0.5s ease;
@@ -178,25 +190,39 @@ body {
     cursor: default;
 }
 
+#stats{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(150, 158, 158);
+    filter: drop-shadow(0px 0px 15px rgb(56, 56, 56));
+    border-radius: 10px;
+    font-size: 1.2vw;
+    width: fit-content;
+    padding: 3px;
+}
+
 /* Initial Page */
 
 #initial_page{
     filter: drop-shadow(0px 0px 30px rgb(97, 97, 97));
     background: linear-gradient(135deg , rgb(214, 211, 212),rgb(86,99,104));
-    width: 1100px;
-    height: 550px;
+    width: 88%;
+    height: 89%;
+    min-height: 85vh;
     border-radius: 20px;
     display: flex;
-    align-items: center;
+    align-items: center;    
     justify-content: center;
 }
 
 #first_text {
     font-weight: bolder;
-    font-size: 40px;
+    font-size: 4vw;
+    text-align: center;
     margin-bottom: 25px;
     color: #333;
-    font-family: "Permanent Marker", cursive;
 }
 
 #whatsName{
@@ -208,11 +234,6 @@ body {
     flex-direction: column;
 }
 
-#whatsName > h1{
-    font-weight: bolder;
-    font-size: 60px;
-    margin-bottom: 25px;
-}
 
 #insert_username{
     display: flex;
@@ -221,17 +242,16 @@ body {
 }
 
 #username {
-    font-size: 18px;
+    font-size: 1.5vw;
     color: #333;
     border-radius: 10px;
     border: none;
-    width: 400px;
-    height: 25px;
+    width: 27vw;
+    height: 1.98vw;
     transition: background 0.3s ease;
     outline: transparent;
     box-shadow: 0 0 15px rgba(122, 130, 134, 0.888);
     background-color: #d9e2e6;
-    font-family: "Permanent Marker", cursive;
 }
 
 #username:hover, #username:focus{
@@ -239,8 +259,8 @@ body {
 }
 
 #enter {
-    width: 34px;
-    height: 34px;
+    width: 2.5vw;
+    height: 2.5vw;
     border-radius: 20px;
     outline: transparent;
     border: none;
@@ -254,10 +274,91 @@ body {
 }
 
 #icon_enter {
-    width: 20px;
-    height: 20px;
+    width: 1.5vw;
+    height: 1.5vw;
 }
 
 #enter:hover, #enter:focus{
     transform: scale(1.05);
+}
+
+@media (max-width: 1250px) {
+    #container {
+        min-height: 400px;
+    }
+
+    #stats {
+        font-size: 1.5vw;
+        padding: 2.5px;
+    }
+}
+
+@media (max-width: 800px) {
+    #container {
+        padding: 10px;
+        min-height: 400px;
+    }
+
+    #title_text {
+        font-size: 4vw;
+    }
+
+    #stats {
+        font-size: 2.45vw;
+        padding: 2px;
+    }
+
+    #gallery {
+        gap: 3vw;
+    }
+
+    #select {
+        width: 38vw;
+        max-width: none;
+        aspect-ratio: 170 / 245;
+    }
+
+    #select > img {
+        height: 86%;
+    }
+
+    #play_theme {
+        font-size: 3.5vw;
+    }
+
+    #icon_username {
+        width: fit-content;
+        height: 4.45vw;
+    }
+
+    #enter {
+        width: 3vw;
+        height: 3vw;
+    }
+
+    #icon_enter {
+        width: 1.75vw;
+        height: 1.75vw;
+    }
+
+    #first_text {
+        font-size: 4.8vw;
+    }
+
+    #username {
+        width: 32vw;
+        height: 2.45vw;
+        font-size: 2.2vw;
+    }
+
+    .board {
+        gap: 3.5vw;
+        padding: 2.5vw;
+    }
+
+    .card {
+        width: 13vw;
+        height: 13vw;
+        font-size: 2.5rem;
+    }
 }
