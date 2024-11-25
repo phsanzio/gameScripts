@@ -1,9 +1,43 @@
-const dict = ["nagger", "cricket", "stem", "cop", "fears"];
+const dict = ["albergue", "amolação", "coisas", "espaço", "graal", "idem", "javali", "língua", "negar", "penido", "qualidade", "tesouro", "vareia", "zulu"];
 const qwerty = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M"]
 let chosenWordIndex = Math.floor(Math.random() * dict.length);
 let word = dict[chosenWordIndex];
+let clearWord = removeSpecialChars(word);
 let errors = 0;
 let wordsLeft = word.length;
+function removeSpecialChars(word){
+    let wordAux = word;
+    wordAux = wordAux.replace("à", "a");
+    wordAux = wordAux.replace("á", "a");
+    wordAux = wordAux.replace("â", "a");
+    wordAux = wordAux.replace("ã", "a");
+    wordAux = wordAux.replace("ä", "a");
+
+    wordAux = wordAux.replace("è", "e");
+    wordAux = wordAux.replace("é", "e");
+    wordAux = wordAux.replace("ê", "e");
+    wordAux = wordAux.replace("ë", "e");
+
+    wordAux = wordAux.replace("ì", "i");
+    wordAux = wordAux.replace("í", "i");
+    wordAux = wordAux.replace("î", "i");
+    wordAux = wordAux.replace("ï", "i");
+
+    wordAux = wordAux.replace("ò", "o");
+    wordAux = wordAux.replace("ó", "o");
+    wordAux = wordAux.replace("ô", "o");
+    wordAux = wordAux.replace("õ", "o");
+    wordAux = wordAux.replace("ö", "o");
+
+    wordAux = wordAux.replace("ù", "u");
+    wordAux = wordAux.replace("ú", "u");
+    wordAux = wordAux.replace("û", "u");
+    wordAux = wordAux.replace("ü", "u");
+
+    wordAux = wordAux.replace("ç", "c");
+
+    return wordAux;
+}
 function updateHangman(){
     const img = document.getElementById("hang_img");
     img.src = `img/${errors}.png`
@@ -14,11 +48,29 @@ function lockKeyboard(){
         key.disabled = true;
     }
 }
+function gameOver(){
+    lockKeyboard();
+    for (let i = 0; i < word.length; i++) {
+        const blankLetter = document.getElementById(i.toString());
+        if (!blankLetter.hasChildNodes()){
+            const span = document.createElement("span");
+            span.textContent = word[i].toUpperCase();
+            span.className = "missed";
+            blankLetter.appendChild(span);
+        }
+    }
+    const newGameDiv = document.getElementById("newGameDiv");
+    const button = document.createElement("button");
+    button.textContent = "Novo jogo";
+    button.id = "newGame";
+    button.onclick = function() {location.reload();}
+    newGameDiv.appendChild(button);
+}
 function checkLetter(letter){
     let foundLetter = 0;
     console.log(letter)
     for (let i = 0; i < word.length; i++) {
-        if (letter.toLowerCase() === word[i]){
+        if (letter.toLowerCase() === clearWord[i]){
             const blankLetter = document.getElementById(i.toString());
             const span = document.createElement("span");
             span.textContent = word[i].toUpperCase();
@@ -31,7 +83,7 @@ function checkLetter(letter){
         const remain = document.getElementById("remain");
         remain.textContent = wordsLeft;
         if (wordsLeft === 0) {
-            lockKeyboard();
+            gameOver();
         }
     } else {
         errors += 1;
@@ -40,7 +92,7 @@ function checkLetter(letter){
             updateHangman();
         } else {
             updateHangman();
-            lockKeyboard();
+            gameOver();
         }
     }
 }
