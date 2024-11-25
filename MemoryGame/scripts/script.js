@@ -1,5 +1,3 @@
-
-const restartButton = document.getElementById('restart');
 const themes = {
     fruits: ['🍎', '🍌', '🍉', '🍇', '🍍', '🍊'],
     animals: ['🐶', '🐱', '🦊', '🐻', '🐼', '🐨'],
@@ -11,6 +9,8 @@ let flippedCards = [];
 let matchedPairs = 0;
 let attempts = 0;
 let startTime = null;
+let isRunning = false;
+let themeGame = '';
 
 
 
@@ -60,7 +60,8 @@ function checkForMatch() {
         card2.classList.add('matched');
         matchedPairs++;
         if (document.querySelectorAll('.matched').length === document.querySelectorAll('.card').length) {
-            alert('Parabéns! Você encontrou todos os pares!');
+            stopTimer();
+            endGame();
         }
     } else {
         getAttempts();
@@ -73,6 +74,14 @@ function checkForMatch() {
     }
 }
 
+function endGame(){
+    const div_endgame = document.getElementById('div_result');
+    const div_container = document.getElementById('container');
+    div_container.style.filter = 'blur(5px)';
+    div_container.style.pointerEvents = 'none';
+    div_endgame.style.display = '';
+}
+
 function getAttempts(){
     attempts++;
     const text_attempts = document.getElementById('attempts')
@@ -83,11 +92,20 @@ function getAttempts(){
 function restartGame() {
     matchedPairs = 0;
     flippedCards = [];
-    createBoard();
+    attempts = 0;
+    startTime = null;
+    isRunning = false;
+    const stats_rep = document.getElementById('attempts');
+    const stats_time = document.getElementById('timer');
+    stats_rep.textContent = 'Tentativas: 0';
+    stats_time.textContent = 'Tempo: 0';
+    const div_endgame = document.getElementById('div_result');
+    const div_container = document.getElementById('container');
+    div_container.style.filter = '';
+    div_container.style.pointerEvents = '';
+    div_endgame.style.display = 'none';
+    createBoard(themeGame);
 }
-
-
-restartButton.addEventListener('click', restartGame);
 
 
 function startGame(theme) {
@@ -99,9 +117,10 @@ function startGame(theme) {
     div_user.style.display = 'none';
     div_stats.style.display = '';
     div_gameboard.style.display = '';
-    createBoard(theme);
+    themeGame = theme;
+    createBoard(themeGame);
     const title_text = document.getElementById('title_text');
-    title_text.textContent = theme;
+    title_text.textContent = themeGame;
 }
 
 function startGamePage(){
@@ -123,12 +142,18 @@ function startGamePage(){
 
 function startTimer() {
     startTime = Date.now();
+    isRunning = true;
     getTimer();
 }
 
 function getTimer() {
+    if (!isRunning) return;
     const time = Math.floor((Date.now() - startTime) / 1000);
     const div_timer = document.getElementById("timer");
     div_timer.textContent = `Tempo: ${time}s`;
     requestAnimationFrame(getTimer);
+}
+
+function stopTimer() {
+    isRunning = false;
 }

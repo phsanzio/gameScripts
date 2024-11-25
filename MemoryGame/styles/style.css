@@ -35,6 +35,8 @@ body {
     /* justify-content: center; */
     align-items: center;
     gap: 20px;
+    position: absolute;
+    z-index: 1;
 }
 
 #title {
@@ -113,15 +115,6 @@ body {
     margin-top: 5px;
 }
 
-#restart {
-    margin-bottom: 20px;
-    padding: 10px 20px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
 #icon_username{
     display: flex;
@@ -205,6 +198,44 @@ body {
 
 #timer{
     color: rgb(252, 32, 32);
+}
+
+#div_result {
+    position: absolute;
+    filter: drop-shadow(0px 0px 30px rgb(97, 97, 97));
+    background: linear-gradient(135deg , rgb(214, 211, 212),rgb(86,99,104));
+    width: 35%;
+    max-width: 500px;
+    height: auto;
+    min-height: 200px;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    gap: 30px;
+}
+
+#text_result{
+    font-weight: bolder;
+    font-size: 1.5vw;
+}
+
+#backMenu, #restart{
+    color: #333;
+    width: 30%;
+    height: 4vw;
+    background-color: rgb(150, 158, 158);
+    filter: drop-shadow(0px 0px 30px rgb(97, 97, 97));
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#backMenu:hover, #restart:hover{
+    transform: scale(1.05);
 }
 
 /* Initial Page */
