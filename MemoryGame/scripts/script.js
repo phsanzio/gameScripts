@@ -79,6 +79,7 @@ function endGame(){
     const div_container = document.getElementById('container');
     div_container.style.filter = 'blur(5px)';
     div_container.style.pointerEvents = 'none';
+    div_container.style.position = 'absolute';
     div_endgame.style.display = '';
 }
 
@@ -103,6 +104,7 @@ function restartGame() {
     const div_container = document.getElementById('container');
     div_container.style.filter = '';
     div_container.style.pointerEvents = '';
+    div_container.style.position = '';
     div_endgame.style.display = 'none';
     createBoard(themeGame);
 }
@@ -156,4 +158,24 @@ function getTimer() {
 
 function stopTimer() {
     isRunning = false;
+}
+
+function backToMenu() {
+    const div_gallery = document.getElementById('gallery');
+    const div_gameboard = document.getElementById('play_game');
+    const div_stats = document.getElementById('stats');
+    const div_user = document.getElementById('icon_username');
+    const div_result = document.getElementById('div_result');
+    const div_container = document.getElementById('container');
+    div_result.style.display = 'none';
+    div_result.style.position = '';
+    div_container.style.filter = '';
+    div_container.style.pointerEvents = '';
+    div_container.style.position = '';
+    div_gallery.style.display = '';
+    div_user.style.display = '';
+    div_stats.style.display = 'none';
+    div_gameboard.style.display = 'none';
+    const title_text = document.getElementById('title_text');
+    title_text.textContent = 'THEMES';
 }
