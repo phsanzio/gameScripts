@@ -178,4 +178,13 @@ function backToMenu() {
     div_gameboard.style.display = 'none';
     const title_text = document.getElementById('title_text');
     title_text.textContent = 'THEMES';
+    matchedPairs = 0;
+    flippedCards = [];
+    attempts = 0;
+    startTime = null;
+    isRunning = false;
+    const stats_rep = document.getElementById('attempts');
+    const stats_time = document.getElementById('timer');
+    stats_rep.textContent = 'Tentativas: 0';
+    stats_time.textContent = 'Tempo: 0';
 }
